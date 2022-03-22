@@ -1,0 +1,16 @@
+<section>
+  <form [formGroup]="form">
+    <label for="labelName">Nombre de La tarea</label>
+    <input type="text" [formControl]="name" id="labelName">
+    <button (click)="createTask()">Crear tarea</button>
+  </form>
+</section>
+
+<section>
+  <div *ngFor="let task of this.tasks$ | async">
+    {{task.name}}
+    <button (click)="completeTask(task.id)">Completar</button>
+    <p *ngIf="task.completed">Tarea Finalizada</p>
+  </div>
+</section>
+
